@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.noteapp.data.NoteDataSource
 import com.example.noteapp.screen.NoteScreen
 import com.example.noteapp.ui.theme.NoteAppTheme
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NoteAppTheme {
                 Surface (color = MaterialTheme.colorScheme.background){
-                    NoteScreen(notes = emptyList(), onAddNote = {}, onRemoveNote = {})
+                    NoteScreen(notes = NoteDataSource().loadNotes(), onAddNote = {}, onRemoveNote = {})
                 }
             }
         }
